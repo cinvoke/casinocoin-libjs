@@ -1,9 +1,10 @@
 {
   "name": "@casinocoin/libjs",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "license": "ISC",
   "description": "A JavaScript API for interacting with the casinocoind server using Node.js or browser clients.",
   "main": "index.js",
+  "typings": "index.d.ts",
   "browser": {
     "ws": "./dist/npm/common/wswrapper.js",
     "https-proxy-agent": false
@@ -65,7 +66,7 @@
     "docgen": "ts-node scripts/build_docs.ts",
     "cp:schemas": "mkdir -p dist/npm/common && cp -r src/common/schemas dist/npm/common/",
     "lint": "tslint -p ./",
-    "clean": "rm -rf ../../../dist/@casinocoin/libjs",
+    "clean": "rm -rf ../../dist/@casinocoin/libjs",
     "dev": "webpack-dashboard -- webpack-dev-server --config webpack/dev.config.js --watch",
     "test:sauce": "ts-node scripts/sauce-runner.ts",
     "test:web": "npm run clean && node_modules/.bin/webpack --config webpack/web.test.config.js",

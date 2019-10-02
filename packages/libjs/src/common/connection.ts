@@ -124,7 +124,7 @@ class Connection extends EventEmitter {
   }
 
   get _state() {
-    return this._ws ? this._ws.readyState : WebSocket.CLOSED
+    return this._ws ? this._ws.readyState : WSWrapper.CLOSED
   }
 
   get _shouldBeConnected() {
@@ -132,7 +132,7 @@ class Connection extends EventEmitter {
   }
 
   isConnected() {
-    return this._state === WebSocket.OPEN && this._isReady
+    return this._state === WSWrapper.OPEN && this._isReady
   }
 
   _onUnexpectedClose(beforeOpen, resolve, reject, code) {
@@ -296,9 +296,9 @@ class Connection extends EventEmitter {
         reject(new ConnectionError(
           'Cannot connect because no server was specified'))
       }
-      if (this._state === WebSocket.OPEN) {
+      if (this._state === WSWrapper.OPEN) {
         resolve()
-      } else if (this._state === WebSocket.CONNECTING) {
+      } else if (this._state === WSWrapper.CONNECTING) {
         this._ws.once('open', resolve)
       } else {
         this._ws = this._createWebSocket()
@@ -334,9 +334,9 @@ class Connection extends EventEmitter {
       this._retry = 0
     }
     return new Promise(resolve => {
-      if (this._state === WebSocket.CLOSED) {
+      if (this._state === WSWrapper.CLOSED) {
         resolve()
-      } else if (this._state === WebSocket.CLOSING) {
+      } else if (this._state === WSWrapper.CLOSING) {
         this._ws.once('close', resolve)
       } else {
         if (this._onUnexpectedCloseBound) {
@@ -364,7 +364,7 @@ class Connection extends EventEmitter {
     return new Promise((resolve, reject) => {
       if (!this._shouldBeConnected) {
         reject(new NotConnectedError())
-      } else if (this._state === WebSocket.OPEN && this._isReady) {
+      } else if (this._state === WSWrapper.OPEN && this._isReady) {
         promise.then(resolve, reject)
       } else {
         this.once('connected', () => promise.then(resolve, reject))
