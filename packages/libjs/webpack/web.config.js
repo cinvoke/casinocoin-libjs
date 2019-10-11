@@ -13,12 +13,10 @@ module.exports = webpackMerge(buildCommonConfig, {
   output: {
     path: path.resolve(__dirname, "../../../dist/@casinocoin/libjs"),
     filename: "index.js",
-    library: "casinocoin"
+    library: "casinocoin",
+    libraryTarget: "umd"
   },
   cache: true,
-  externals: [{
-      'lodash': '_'
-  }],
   plugins: [
     // browser replacements
     new Webpack.NormalModuleReplacementPlugin(/^\.\/wswrapper$/, path.resolve(__dirname, '../src/common/wswrapper-native')),
