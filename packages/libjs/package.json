@@ -1,6 +1,6 @@
 {
   "name": "@casinocoin/libjs",
-  "version": "2.0.4",
+  "version": "2.0.7",
   "license": "ISC",
   "description": "A JavaScript API for interacting with the casinocoind server using Node.js or browser clients.",
   "main": "index.js",

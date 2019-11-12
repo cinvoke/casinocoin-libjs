@@ -14,6 +14,7 @@ function isImmediateRejection(engineResult: string): boolean {
 }
 
 function formatSubmitResponse(response) {
+  console.log('response', JSON.stringify(response))
   const data = {
     resultCode: response.engine_result,
     resultMessage: response.engine_result_message

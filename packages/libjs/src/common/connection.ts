@@ -458,7 +458,9 @@ class Connection extends EventEmitter {
 
       this.once(eventName, response => {
         if (response.status === 'error') {
-          _reject(new CasinocoindError(response.error))
+          const errorTxt = response.error+' '+response.error_exception
+          console.log('EventName: ' + eventName + ' error: ' + errorTxt)
+          _reject(new CasinocoindError(errorTxt))
         } else if (response.status === 'success') {
           _resolve(response.result)
         } else {
