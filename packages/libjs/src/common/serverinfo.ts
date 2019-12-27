@@ -19,6 +19,9 @@ export type GetServerInfoResponse = {
   peers: number,
   pubkeyNode: string,
   pubkeyValidator?: string,
+  crnActivated?: boolean,
+  crnDomainName?: string,
+  crnPublicKey?: string,
   serverState: string,
   validatedLedger: {
     age: number,
