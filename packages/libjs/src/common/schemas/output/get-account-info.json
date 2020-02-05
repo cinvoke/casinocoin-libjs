@@ -27,6 +27,10 @@
     "previousAffectingTransactionLedgerVersion": {
       "$ref": "ledgerVersion",
       "description": "The ledger version that the transaction identified by the `previousAffectingTransactionID` was validated in."
+    },
+    "kycVerified": {
+      "type": "boolean",
+      "description": "Indication if an account is KYC verified"
     }
   },
   "required": [
@@ -34,7 +38,8 @@
     "cscBalance",
     "ownerCount",
     "previousAffectingTransactionID",
-    "previousAffectingTransactionLedgerVersion"
+    "previousAffectingTransactionLedgerVersion",
+    "kycVerified"
   ],
   "additionalProperties": false
 }
