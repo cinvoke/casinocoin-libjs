@@ -6,10 +6,18 @@ function parseCRNTXHistory(tx: any): Array<string> {
     return []
   } else {
     const crnRoundObject = tx.meta.AffectedNodes.filter(obj => {
-      return obj.ModifiedNode.LedgerEntryType === 'CRNRound'
+      if (obj.CreatedNode !== undefined) {
+        return obj.CreatedNode.LedgerEntryType === 'CRNRound'
+      } else {
+        return obj.ModifiedNode.LedgerEntryType === 'CRNRound'
+      }
     })
     if(crnRoundObject.length === 1){
-      return crnRoundObject[0].ModifiedNode.FinalFields.CRNTxHistory
+      if (crnRoundObject[0].CreatedNode !== undefined) {
+        return crnRoundObject[0].CreatedNode.NewFields.CRNTxHistory
+      } else {
+        return crnRoundObject[0].ModifiedNode.FinalFields.CRNTxHistory
+      }
     } else {
       return []
     }
