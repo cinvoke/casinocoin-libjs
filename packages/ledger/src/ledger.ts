@@ -1,5 +1,5 @@
 import Transport from '@ledgerhq/hw-transport'
-import BIPPath from 'bip32-path'
+import * as BIPPath from 'bip32-path'
 
 type AddressResult = {
     publicKey: string,
