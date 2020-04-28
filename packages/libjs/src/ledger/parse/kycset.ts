@@ -14,7 +14,6 @@ import {removeUndefined} from '../../common'
 
 function parseKYCSet(tx: any): Object {
   assert(tx.TransactionType === 'KYCSet')
-  // console.log('parseKYCSet: ' + JSON.stringify(tx))
   return removeUndefined({
     KYC: []
   })

@@ -51,10 +51,8 @@ function convertHexToUUID(hex: string) {
 
 function formatAccountInfo(response: AccountDataResponse) {
     const data = response.account_data
-    console.log('Account Data: ' + JSON.stringify(data))
     const kycVerified = ((data.Flags & kycFlags.KYCSet) !== 0)
     if (kycVerified) {
-        console.log('KYC Verified!')
         const verificationsArray = []
         if (data.KYC.Verifications) {
             // convert items to UUID values
@@ -69,7 +67,6 @@ function formatAccountInfo(response: AccountDataResponse) {
             verifications: verificationsArray
         })
     } else {
-        console.log('NOT KYC Verified!')
         if (data.KYC) {
             return removeUndefined({
                 account: data.Account,

@@ -1,5 +1,4 @@
 const path = require("path");
-const Webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 //const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -8,38 +7,29 @@ const buildCommonConfig = require("./build.common.config");
 
 module.exports = webpackMerge(buildCommonConfig, {
   mode: "production",
-  target: "web",
-  entry: path.resolve(__dirname, "../src/index.ts"),
+  target: "node",
+  entry: path.resolve(__dirname, "../src/ledger.ts"),
   output: {
-    path: path.resolve(__dirname, "../../../dist/@casinocoin/libjs"),
-    filename: "index.js",
+    path: path.resolve(__dirname, "../../../dist/@casinocoin/ledger"),
+    filename: "ledger.js",
     library: "casinocoin",
     libraryTarget: "umd"
   },
-  cache: true,
   plugins: [
-    // browser replacements
-    new Webpack.NormalModuleReplacementPlugin(/^\.\/wswrapper$/, path.resolve(__dirname, '../src/common/wswrapper-native')),
-    new Webpack.NormalModuleReplacementPlugin(/^\.\/wallet$/, './wallet-web'),
-    new Webpack.NormalModuleReplacementPlugin(/^.*setup-api$/, './setup-api-web'),
     // copy static assets
     new CopyWebpackPlugin(
       [
         {
           from: path.resolve(__dirname, "../README.md"),
-          to: path.resolve(__dirname, "../../../dist/@casinocoin/libjs/README.md")
+          to: path.resolve(__dirname, "../../../dist/@casinocoin/ledger/README.md")
         },
         {
           from: path.resolve(__dirname, "../LICENSE"),
-          to: path.resolve(__dirname, "../../../dist/@casinocoin/libjs")
-        },
-        {
-          from: path.resolve(__dirname, "../CHANGELOG.md"),
-          to: path.resolve(__dirname, "../../../dist/@casinocoin/libjs/CHANGELOG.md")
+          to: path.resolve(__dirname, "../../../dist/@casinocoin/ledger")
         },
         {
           from: path.resolve(__dirname, "../package.json"),
-          to: path.resolve(__dirname, "../../../dist/@casinocoin/libjs/package.json")
+          to: path.resolve(__dirname, "../../../dist/@casinocoin/ledger/package.json")
         }
       ]
     ),

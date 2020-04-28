@@ -1,4 +1,5 @@
 import {validate, removeUndefined, dropsToCsc} from '../common'
+import {txFlags} from '../common/txflags'
 
 type AccountData = {
   Sequence: number,
@@ -31,18 +32,21 @@ type AccountInfoResponse = {
   ownerCount: number,
   previousInitiatedTransactionID: string,
   previousAffectingTransactionID: string,
-  previousAffectingTransactionLedgerVersion: number
+  previousAffectingTransactionLedgerVersion: number,
+  kycVerified: boolean
 }
 
 function formatAccountInfo(response: AccountDataResponse) {
   const data = response.account_data
+  const kycVerified = ((data.Flags & txFlags.KYC.KYCSet) !== 0)
   return removeUndefined({
     sequence: data.Sequence,
     cscBalance: dropsToCsc(data.Balance),
     ownerCount: data.OwnerCount,
     previousInitiatedTransactionID: data.AccountTxnID,
     previousAffectingTransactionID: data.PreviousTxnID,
-    previousAffectingTransactionLedgerVersion: data.PreviousTxnLgrSeq
+    previousAffectingTransactionLedgerVersion: data.PreviousTxnLgrSeq,
+    kycVerified: kycVerified
   })
 }
 

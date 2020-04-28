@@ -1,0 +1,57 @@
+{
+  "name": "@casinocoin/ledger",
+  "version": "0.1.1",
+  "description": "CasinoCoin Ledger hardware JavaScript interface",
+  "keywords": [
+    "Ledger",
+    "LedgerWallet",
+    "CasinoCoin",
+    "CSC",
+    "NanoS",
+    "Blue",
+    "Hardware Wallet"
+  ],
+  "author": "Andre Jochems <andre@casinocoin.org>",
+  "homepage": "https://casinocoin.org",
+  "license": "ISC",
+  "main": "ledger.js",
+  "dependencies": {
+    "@ledgerhq/hw-transport": "^5.8.0",
+    "bip32-path": "0.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "10.12.18",
+    "copy-webpack-plugin": "^5.1.1",
+    "json-loader": "0.5.2",
+    "json-schema-to-markdown-table": "0.4.0",
+    "ts-loader": "5.3.3",
+    "ts-node": "7.0.1",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "4.1.1",
+    "tslint-webpack-plugin": "2.0.2",
+    "typescript": "3.2.4",
+    "uglifyjs-webpack-plugin": "2.2.0",
+    "webpack": "4.29.0",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "3.2.1",
+    "webpack-dashboard": "2.0.0",
+    "webpack-dev-server": "3.1.14",
+    "webpack-merge": "4.2.1",
+    "webpack-node-externals": "1.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casinocoin/casinocoin-libjs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "clean": "rm -rf ../../dist/@casinocoin/ledger",
+    "build": "npm run clean && webpack --config webpack/build.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/casinocoin/casinocoin-libjs/issues"
+  }
+}
