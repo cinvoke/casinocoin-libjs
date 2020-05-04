@@ -31,6 +31,12 @@
     "libjs:publish": "npm run libjs:build && cd dist/@casinocoin/libjs && npm publish --access public",
     "ledger:build": "npm run --prefix packages/ledger build",
     "ledger:pack": "npm run ledger:build && cd dist/@casinocoin/ledger && npm pack && mv casinocoin-ledger-*.tgz ../../../tgz",
-    "ledger:publish": "npm run ledger:build && cd dist/@casinocoin/ledger && npm publish --access public"
+    "ledger:publish": "npm run ledger:build && cd dist/@casinocoin/ledger && npm publish --access public",
+    "mobile-components:build": "npm run --prefix packages/mobile-components build",
+    "mobile-components:pack": "npm run mobile-components:build && npm run --prefix packages/mobile-components package && cd dist/@casinocoin/mobile-components && npm pack && mv casinocoin-mobile-components-*.tgz ../../../tgz",
+    "mobile-components:publish": "npm run mobile-components:build && cd dist/@casinocoin/mobile-components && npm publish --access public",
+    "mobile-core:build": "npm run --prefix packages/mobile-core build",
+    "mobile-core:pack": "npm run mobile-core:build && cd dist/@casinocoin/mobile-core && npm pack && mv casinocoin-mobile-core-*.tgz ../../../tgz",
+    "mobile-core:publish": "npm run mobile-core:build && cd dist/@casinocoin/mobile-core && npm publish --access public"
   }
 }
