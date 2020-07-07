@@ -16,6 +16,7 @@ import parseFeeUpdate from './fee-update'
 import parseAmendment from './amendment'
 import parseKYCSet from './kycset'
 import parseSetCRNRound from './set-crn-round'
+import parseSetConfiguration from './configset'
 
 function parseTransactionType(type) {
   const mapping = {
@@ -35,7 +36,8 @@ function parseTransactionType(type) {
     SetFee: 'feeUpdate', // pseudo-transaction
     EnableAmendment: 'amendment', // pseudo-transaction
     KYCSet: 'kycSet', // pseudo-transaction
-    SetCRNRound: 'setCRNRound' // pseudo-transaction
+    SetCRNRound: 'setCRNRound', // pseudo-transaction
+    SetConfiguration: 'setConfiguration' // pseudo-transaction
   }
   return mapping[type] || null
 }
@@ -57,7 +59,8 @@ function parseTransaction(tx: any): any {
     'feeUpdate': parseFeeUpdate,
     'amendment': parseAmendment,
     'kycSet': parseKYCSet,
-    'setCRNRound': parseSetCRNRound
+    'setCRNRound': parseSetCRNRound,
+    'setConfiguration': parseSetConfiguration
   }
   const parser: Function = mapping[type]
   assert(parser !== undefined, 'Unrecognized transaction type')

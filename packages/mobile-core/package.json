@@ -47,7 +47,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@casinocoin/libjs": "2.0.14",
+    "@casinocoin/libjs": "2.0.15",
     "@types/big.js": "^4.0.5",
     "@types/crypto-js": "^3.1.45",
     "big.js": "^5.2.2",
