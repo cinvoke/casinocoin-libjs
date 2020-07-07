@@ -1,0 +1,17 @@
+{
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "@ionic/angular": "@ionic/angular"
+      }
+    },
+    "dest": "../../dist/@casinocoin/mobile-components",
+    "whitelistedNonPeerDependencies": [
+      "angular",
+      "ionic-native",
+      "core-js",
+      "rxjs",
+      "zone.js"
+    ]
+}
