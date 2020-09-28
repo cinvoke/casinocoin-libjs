@@ -16,7 +16,7 @@
   "license": "ISC",
   "main": "ledger.js",
   "dependencies": {
-    "@ledgerhq/hw-transport": "^5.8.0",
+    "@ledgerhq/hw-transport": "^5.22.0",
     "bip32-path": "0.4.2"
   },
   "devDependencies": {

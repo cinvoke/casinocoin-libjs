@@ -68,7 +68,7 @@
     "object-literal-key-quotes": false,
     "quotemark": [true, "single"],
     "radix": true,
-    "semicolon": [true, "never"],
+    "semicolon": [false, "never"],
     "space-in-parens": [true, "never"],
     "comment-format": [true, "check-space"],
     "use-isnan": true,

@@ -1,0 +1,23 @@
+{
+  "name": "l2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "flow": "flow",
+    "clean": "bash ../../script/clean.sh",
+    "build": "bash ../../script/build.sh",
+    "watch": "bash ../../script/watch.sh",
+    "doc": "bash ../../script/doc.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ledgerhq/hw-transport": "^5.22.0",
+    "bip32-path": "^0.4.2"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.132.0"
+  }
+}
