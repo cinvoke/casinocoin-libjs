@@ -1,6 +1,5 @@
 import Transport from '@ledgerhq/hw-transport'
 import * as BIPPath from 'bip32-path'
-
 const SW_OK = 0x9000;
 const SW_KEEP_ALIVE = 0x6e02;
 
@@ -63,9 +62,7 @@ export default class CSC {
       const result = {address: '', publicKey: '', chainCode: ''};
       const publicKeyLength = response[0];
       const addressLength = response[1 + publicKeyLength];
-
       result.publicKey = response.slice(1, 1 + publicKeyLength).toString('hex');
-
       result.address = response
           .slice(1 + publicKeyLength + 1,
               1 + publicKeyLength + 1 + addressLength)
@@ -82,7 +79,7 @@ export default class CSC {
       return result
     }).catch(e => {
       console.log('ERROR: ' + e);
-    });
+    })
   }
 
   /**
