@@ -23,7 +23,7 @@
     "https-proxy-agent": "^4.0.0",
     "jayson": "3.0.0",
     "jsonschema": "1.2.2",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "net": "1.0.2",
     "tls": "0.0.1",
     "ws": "3.3.1"
