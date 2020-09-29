@@ -14,7 +14,7 @@
   "author": "Andre Jochems <andre@casinocoin.org>",
   "homepage": "https://casinocoin.org",
   "license": "ISC",
-  "main": "ledger.js",
+  "main": "ledger.ts",
   "dependencies": {
     "@ledgerhq/hw-transport": "^5.8.0",
     "bip32-path": "0.4.2"
