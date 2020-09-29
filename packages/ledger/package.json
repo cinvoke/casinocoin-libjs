@@ -1,6 +1,6 @@
 {
   "name": "@casinocoin/ledger",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "CasinoCoin Ledger hardware JavaScript interface",
   "keywords": [
     "Ledger",
