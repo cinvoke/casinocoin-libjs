@@ -32,7 +32,6 @@ export default class CSC {
 
   /**
    * get Casinocoin address for a given BIP 32 path.
-   *
    * @param path a path in BIP 32 format
    * @param display optionally enable or not the display
    * @param chainCode optionally enable or not the chainCode request
